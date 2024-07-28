@@ -1,0 +1,40 @@
+class Solution {
+public:
+    void moveZeroes(vector<int>& nums) {
+        // int cnt=0;
+        // int j=0;
+        // for(int i=0;i<nums.size();i++){
+        //     if(nums[i]==0){
+        //         cnt++;
+        //     }
+        //     else{
+        //         nums[j]=nums[i];
+        //         j++;
+        //     }
+        // }
+        // while(cnt--){
+        //     nums[j]=0;
+        //     j++;
+        // }
+
+
+        // 2nd method
+
+        int l=0,r=0;
+        while(r<nums.size()){
+            if(nums[l]!=0 && nums[r]!=0){
+                l++;
+                r++;
+            }
+            else if(nums[l]==0 && nums[r]==0){
+                r++;
+            }
+            else if(nums[l]==0 && nums[r]!=0){
+                swap(nums[l],nums[r]);
+                l++;
+                r++;
+            }
+        }
+        
+    }
+};

@@ -1,0 +1,16 @@
+long long findMinDiff(vector<long long> a, long long n, long long m){
+    //code
+        sort(a.begin(), a.end());
+    
+    long long i = 0, j = m - 1;
+    long long mini = LLONG_MAX; // Use LLONG_MAX for long long type
+
+    // Traverse the array to find the minimum difference
+    while (j < n) {
+        // Calculate the difference between the maximum and minimum of the current subset
+        mini = min(mini, a[j] - a[i]);
+        i++;
+        j++;
+    }
+
+    return mini;

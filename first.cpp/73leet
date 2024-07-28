@@ -1,0 +1,31 @@
+class Solution {
+public:
+    void setZeroes(vector<vector<int>>& m) {
+        int p=m.size();
+        int q=m[0].size();
+        vector<vector<int>> visited=m;
+        for(int i=0;i<p;i++){
+            for(int j=0;j<q;j++){
+                if(m[i][j]==0){
+                    for(int k=0;k<q;k++){
+                        visited[i][k]=0;
+                    }
+                }
+            }
+        }
+        for(int i=0;i<p;i++){
+            for(int j=0;j<q;j++){
+                if(m[i][j]==0){
+                    for(int k=0;k<p;k++){
+                        visited[k][j]=0;
+                    }
+                }
+            }
+        }
+        for(int i=0; i<p; i++){
+            for(int j=0; j<q; j++){
+                m[i][j] = visited[i][j];
+            }
+        }
+    }
+};
